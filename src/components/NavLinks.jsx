@@ -10,7 +10,7 @@ export default function NavLinks({ className = "flex gap-4" }) {
         </Link>
       </li>
       <li>
-        <Link to="/prescriptions" className="hover:text-emerald-700 transition">
+        <Link to="/team" className="hover:text-emerald-700 transition">
           Consult us 
         </Link>
       </li>

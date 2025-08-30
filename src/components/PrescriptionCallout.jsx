@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Reusable checklist item
 function FeatureItem({ text }) {
@@ -34,19 +35,19 @@ export default function PrescriptionCallout() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-6 flex gap-3">
-            <a
-              href="#"
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link
+              to="/prescriptions"
               className="rounded-2xl bg-white text-emerald-700 font-semibold px-5 py-3 shadow hover:shadow-md"
             >
               Get started
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/prescriptions"
               className="rounded-2xl bg-emerald-800/40 text-white font-semibold px-5 py-3 ring-1 ring-white/30 hover:bg-emerald-800/60"
             >
               How it works
-            </a>
+            </Link>
           </div>
         </div>
 

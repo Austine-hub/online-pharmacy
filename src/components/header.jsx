@@ -1,8 +1,7 @@
-// src/components/Header.jsx
-
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
-import NavLinks from "./NavLinks"; // ✅ Import your reusable nav links
+import NavLinks from "./NavLinks";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -16,25 +15,23 @@ export default function Header() {
           <p className="font-medium">
             Free home delivery on eligible orders over KSh 3,000
           </p>
-          <a
-            href="#advice"
-            className="underline underline-offset-4 hover:opacity-90 transition"
+          <Link
+            to="/prescriptions"
+            className="underline underline-offset-4 hover:opacity-90 transition !text-white"
           >
-            Health advice
-          </a>
+            Join Us
+          </Link>
         </div>
       </div>
+      {/* The missing closing div for the announcement bar has been added here */}
 
       {/* Main header */}
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 grid grid-cols-12 gap-4 items-center">
-          
-          {/* Logo (acts as toggle on mobile) */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
+          {/* Logo (now a clickable link) */}
+          <Link
+            to="/"
             className="col-span-6 sm:col-span-2 flex items-center gap-2"
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
           >
             <span className="inline-flex h-9 w-9 rounded-xl bg-emerald-600 items-center justify-center shadow-sm">
               <svg
@@ -52,6 +49,29 @@ export default function Header() {
             <span className="font-extrabold text-xl tracking-tight">
               AjanjaCare
             </span>
+          </Link>
+
+          {/* Mobile Menu Toggle Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="col-span-6 sm:hidden flex items-center justify-end"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
+            <svg
+              className="h-6 w-6 text-gray-700"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
           </button>
 
           {/* Search Bar */}

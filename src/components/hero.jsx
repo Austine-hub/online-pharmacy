@@ -90,7 +90,7 @@ export default function Hero() {
                   </div>
                   {/* Replaced 'a' tag with 'Link' component */}
                   <Link
-                    to="/services"
+                    to="/prescriptions"
                     className="rounded-xl bg-white text-emerald-700 font-medium px-4 py-2 hover:shadow"
                   >
                     Book

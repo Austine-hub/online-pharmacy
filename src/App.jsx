@@ -17,57 +17,14 @@ import Newsletter from "./components/newsletter.jsx";
 import PrescriptionCallout from "./components/PrescriptionCallout.jsx";
 
 // Page components for routing
-import Prescriptions from "./components/Prescriptions.jsx";
+import Prescriptions from "./components/prescriptions.jsx";
 import PrescriptionGuidelines from "./components/PrescriptionGuidelines.jsx";
 import StoreLocatorPage from "./components/StoreLocatorPage.jsx";
+import TeamSection from "./components/TeamSection.jsx"; // New import
 
 import "./App.css";
 
-function App() {
-  return (
-    <Router>
-      <div className="flex flex-col min-h-screen">
-        {/* Header is always visible on all pages */}
-        <Header />
-
-        {/* This content will be displayed on every page, as requested */}
-        <main className="flex-grow">
-          {/* This area is for pages that only show on specific URLs */}
-          <Routes>
-            {/* The main route for your homepage, now matching both '/' and '/online-pharmacy/' */}
-            <Route
-              path="/"
-              element={
-                <>
-                  <Hero />
-                  <BadgeCard />
-                  <ServicesStrip />
-                  <FeaturedCategories />
-                  <ServicesStrip />
-                  <CategoryCard />
-                  <StoreLocator />
-                  <InfoTiles />
-                  <Newsletter />
-                  <PrescriptionCallout />
-                </>
-              }
-            />
-            {/* Add a specific route for the '/online-pharmacy' path */}
-            <Route path="/online-pharmacy" element={<HomePageContent />} />
-            <Route path="/prescriptions" element={<Prescriptions />} />
-            <Route path="/services" element={<PrescriptionGuidelines />} />
-            <Route path="/stores" element={<StoreLocatorPage />} />
-          </Routes>
-        </main>
-
-        {/* Footer is always visible on all pages */}
-        <Footer />
-      </div>
-    </Router>
-  );
-}
-
-// A new component to group all the home page components
+// A component to group all the home page content that should appear on multiple routes
 const HomePageContent = () => (
   <>
     <Hero />
@@ -82,5 +39,36 @@ const HomePageContent = () => (
     <PrescriptionCallout />
   </>
 );
+
+function App() {
+  return (
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        {/* Header is always visible on all pages */}
+        <Header />
+
+        {/* The main content area where pages are rendered */}
+        <main className="flex-grow">
+          <Routes>
+            {/* The primary homepage route */}
+            <Route path="/" element={<HomePageContent />} />
+            
+            {/* The homepage route for the specific '/online-pharmacy' URL */}
+            <Route path="/online-pharmacy" element={<HomePageContent />} />
+            
+            {/* Dedicated routes for other pages */}
+            <Route path="/prescriptions" element={<Prescriptions />} />
+            <Route path="/services" element={<PrescriptionGuidelines />} />
+            <Route path="/stores" element={<StoreLocatorPage />} />
+            <Route path="/team" element={<TeamSection />} />
+          </Routes>
+        </main>
+
+        {/* Footer is always visible on all pages */}
+        <Footer />
+      </div>
+    </Router>
+  );
+}
 
 export default App;
