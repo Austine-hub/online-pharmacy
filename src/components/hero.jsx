@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 export default function Hero() {
   return (
@@ -43,18 +44,17 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#prescriptions"
-              className="rounded-2xl bg-white text-emerald-700 font-semibold px-5 py-3 shadow hover:shadow-md"
-            >
+            <Link to="/prescriptions" className="rounded-2xl bg-white text-emerald-700 font-semibold px-5 py-3 shadow hover:shadow-md">
               Manage prescriptions
-            </a>
-            <a
-              href="#services"
+            </Link>
+
+            {/* Replaced 'a' tag with 'Link' component */}
+            <Link
+              to="/services"
               className="rounded-2xl bg-emerald-800/40 text-white font-semibold px-5 py-3 ring-1 ring-white/30 hover:bg-emerald-800/60"
             >
               Browse services
-            </a>
+            </Link>
           </div>
 
           {/* Features */}
@@ -88,12 +88,13 @@ export default function Hero() {
                     <p className="font-semibold">{s.title}</p>
                     <p className="text-white/80">{s.note}</p>
                   </div>
-                  <a
-                    href="#services"
+                  {/* Replaced 'a' tag with 'Link' component */}
+                  <Link
+                    to="/services"
                     className="rounded-xl bg-white text-emerald-700 font-medium px-4 py-2 hover:shadow"
                   >
                     Book
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

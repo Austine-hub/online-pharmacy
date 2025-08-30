@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ServicesStrip() {
   const services = [
-    { title: "Prescriptions", desc: "New & repeat prescriptions", cta: "Learn more" },
-    { title: "Online doctor", desc: "Private treatments online", cta: "Start now" },
-    { title: "Health checks", desc: "BP, cholesterol & BMI", cta: "Book a check" },
-    { title: "Click & Collect", desc: "Reserve online, collect in store", cta: "How it works" },
+    { title: "Prescriptions", desc: "New & repeat prescriptions", cta: "Learn more", path: "/services" },
+    { title: "Online doctor", desc: "Private treatments online", cta: "Start now", path: "/online-doctor" },
+    { title: "Health checks", desc: "BP, cholesterol & BMI", cta: "Book a check", path: "/health-checks" },
+    { title: "Click & Collect", desc: "Reserve online, collect in store", cta: "How it works", path: "/stores" },
   ];
 
   return (
@@ -22,12 +23,12 @@ export default function ServicesStrip() {
             </div>
             <h3 className="text-lg font-bold">{s.title}</h3>
             <p className="text-sm text-gray-600 mt-1">{s.desc}</p>
-            <a
-              href="#"
+            <Link
+              to={s.path}
               className="inline-block mt-4 text-emerald-700 font-semibold hover:underline"
             >
               {s.cta}
-            </a>
+            </Link>
           </div>
         ))}
       </div>
