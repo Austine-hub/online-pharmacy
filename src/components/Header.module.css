@@ -58,6 +58,7 @@
   align-items: center;
 }
 
+
 /* Logo styles */
 .logo {
   grid-column: span 6 / span 6; /* col-span-6 */
