@@ -46,8 +46,9 @@ export default function Header() {
                 <path d="M12 2v20M2 12h20" />
               </svg>
             </span>
-            <span className="font-extrabold text-xl tracking-tight">
+            <span className="font-extrabold text-x0.4 tracking-tight">
               AjanjaCare
+              <p>Home</p>
             </span>
           </Link>
 
